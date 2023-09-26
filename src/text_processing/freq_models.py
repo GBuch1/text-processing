@@ -56,8 +56,12 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
-        # TODO: implement me
-        return False
+        # Added the if else statement that returns True if object1 and object2 are equal and False if not
+        if self._object1 == self._object2:
+            return True
+        else:
+            return False
+        
 
     def __str__(self) -> str:
         """Returns the string representation of `Pair` in this format: "<object1:object2>".
