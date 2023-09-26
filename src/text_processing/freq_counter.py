@@ -7,9 +7,9 @@ import argparse
 from text_processing.freq_models import TwoGram, Frequency
 from text_processing.freq_utils import tokenize_file, print_frequencies
 
-__author__ = "Boaty McBoatface, Planey McPlaneface"
+__author__ = "Garrett Buchanan, Livingstone Rwagatare"
 __copyright__ = "Copyright 2023, Westmont College"
-__credits__ = ["Boaty McBoatface", "Planey McPlaneface",
+__credits__ = ["Garrett Buchanan", "Livingstone Rwagatare",
                "Donald J. Patterson", "Mike Ryu", ]
 __license__ = "MIT"
 __email__ = "mryu@westmont.edu"
