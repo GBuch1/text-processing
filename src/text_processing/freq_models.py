@@ -2,9 +2,9 @@
 """Provides `Pair`, `TwoGram`, and `Frequency` classes as data models for text processing.
 """
 
-__author__ = "Boaty McBoatface, Planey McPlaneface"
+__author__ = "Garrett Buchanan, Livingstone Rwagatare"
 __copyright__ = "Copyright 2023, Westmont College"
-__credits__ = ["Boaty McBoatface", "Planey McPlaneface",
+__credits__ = ["Garrett Buchanan", "Livingstone Rwagatare",
                "Donald J. Patterson", "Mike Ryu", ]
 __license__ = "MIT"
 __email__ = "mryu@westmont.edu"
@@ -26,26 +26,26 @@ class Pair:
     @property
     def object1(self) -> object:
         """Getter for `object1`."""
-        # TODO: implement me
-        return None
+        return self._object1
+        #return None
 
     @object1.setter
     def object1(self, o1: object) -> None:
         """Setter for `object1`."""
-        # TODO: implement me
-        pass
+        self._object1 = o1
+        #pass
 
     @property
     def object2(self) -> object:
         """Getter for `object2`."""
-        # TODO: implement me
-        return None
+        return self._object2
+        #return None
 
     @object2.setter
     def object2(self, o2: object) -> None:
         """Setter for `object2`."""
-        # TODO: implement me
-        pass
+        self._object2 = o2
+        #pass
 
     def __eq__(self, other: object) -> bool:
         """Compares `self` to `other` (object) given to return `True` if equal and `False` otherwise.
