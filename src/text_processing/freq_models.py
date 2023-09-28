@@ -27,29 +27,24 @@ class Pair:
     def object1(self) -> object:
         """Getter for `object1`."""
         return self._object1
-        #return None
 
     @object1.setter
     def object1(self, o1: object) -> None:
         """Setter for `object1`."""
         self._object1 = o1
-        #pass
 
     @property
     def object2(self) -> object:
         """Getter for `object2`."""
         return self._object2
-        #return None
 
     @object2.setter
     def object2(self, o2: object) -> None:
         """Setter for `object2`."""
         self._object2 = o2
-        #pass
 
     def __eq__(self, other: object) -> bool:
         """Compares `self` to `other` (object) given to return `True` if equal and `False` otherwise.
-        
 
         Two `Pair`s are equal if both of their `key`s (`object1`s) and `value`s (`object2`s) are equal.
 
@@ -57,14 +52,15 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
+        # The __eq__ function first makes sure that the parameter "other"
+        # is in the class "Pair". If "other" is in "Pair" it then compares 
+        # the 'key' of self.object1 to the 'key' of other.object1 followed 
+        # by the 'value' of self.object2 to the 'value' of other.object2 and
+        # returns it
+        
         if not isinstance(other, Pair):
             return False
         return self.object1 == other.object1 and self.object2 == other.object2        
-       # if self._object1 == self._object2:
-        #    return True
-       # else:
-       #     return False
-        
 
     def __str__(self) -> str:
         """Returns the string representation of `Pair` in this format: "<object1:object2>".
@@ -72,19 +68,27 @@ class Pair:
         If either `key` (`object1`) or `value` (`object2`) is `None`, "None" is used in their place.
 
         """
-        object1_str = str(self.object1) if self.object1 is not None else "None"
-        object2_str = str(self.object2) if self.object2 is not None else "None"
-        return f"<{object1_str}:{object2_str}>"
+        # The __str__ function first creates the variables object1_string and
+        # object2_string and sets them equal to self.object1 and self.object2
+        # respectively as strings. It then passes object1 through an if statement
+        # to determine if the object is 'None'. If the object is 'None', then an
+        # else statement is used to set the variable object1_string equal to the
+        # string value "None". The same process is repeated for object2. Finally
+        # the function returns the values of object1_string and object2_string in
+        # the format "<object1_string:object2_string>".
         
-       #if self._object1 == None:
-       #       self._object1 = "None"
-        #else:
-         #     return self._object1
-       # if self._object2 == None:
-        #      self._object2 = "None"
-        #else:
-         #   return self.object2
-        #return ("<"), self._object1, (":"), self._object2, (">")
+        object1_string = str(self.object1)
+        object2_string = str(self.object2)
+        if self.object1 is not None:
+            object1_string = str(self.object1)
+        else:
+            object1_string = "None"
+        if self.object2 is not None:
+            object2_string = str(self.object2)
+        else:
+            object2_string = "None"
+       
+        return f"<{object1_string}:{object2_string}>"
 
     def __hash__(self) -> int:
         """Returns the result of hashing both `key` and `value`.
