@@ -49,6 +49,7 @@ class Pair:
 
     def __eq__(self, other: object) -> bool:
         """Compares `self` to `other` (object) given to return `True` if equal and `False` otherwise.
+        
 
         Two `Pair`s are equal if both of their `key`s (`object1`s) and `value`s (`object2`s) are equal.
 
