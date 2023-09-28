@@ -57,8 +57,12 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
-        # TODO: implement me
-        return False
+                
+        if self._object1 == self._object2:
+            return True
+        else:
+            return False
+        
 
     def __str__(self) -> str:
         """Returns the string representation of `Pair` in this format: "<object1:object2>".
@@ -66,8 +70,15 @@ class Pair:
         If either `key` (`object1`) or `value` (`object2`) is `None`, "None" is used in their place.
 
         """
-        # TODO: implement me
-        return ""
+        if self._object1 == None:
+              self._object1 = "None"
+        else:
+              return self._object1
+        if self._object2 == None:
+              self._object2 = "None"
+        else:
+            return self.object2
+        return ("<"), self._object1, (":"), self._object2, (">")
 
     def __hash__(self) -> int:
         """Returns the result of hashing both `key` and `value`.
