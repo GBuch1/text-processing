@@ -56,7 +56,7 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
-        # Added the if else statement that returns True if object1 and object2 are equal and False if not
+                
         if self._object1 == self._object2:
             return True
         else:
@@ -69,8 +69,15 @@ class Pair:
         If either `key` (`object1`) or `value` (`object2`) is `None`, "None" is used in their place.
 
         """
-        # TODO: implement me
-        return ""
+        if self._object1 == None:
+              self._object1 = "None"
+        else:
+              return self._object1
+        if self._object2 == None:
+              self._object2 = "None"
+        else:
+            return self.object2
+        return ("<"), self._object1, (":"), self._object2, (">")
 
     def __hash__(self) -> int:
         """Returns the result of hashing both `key` and `value`.
