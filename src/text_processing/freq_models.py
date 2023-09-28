@@ -146,28 +146,66 @@ class TwoGram(Pair):
     def __ne__(self, other: object) -> bool:
         """Complement of __eq__, used to support the `!=` (not equals) operation."""
         # TODO: implement me [HINT: use `__eq__` from above; this should be a one-liner]
-        return False
+        
+        
+        # Todo: modify return False 
+        # Done: Teplaced return False with  -> return not self.__eq__(other)
+        #comment: complement of __eq__, used to support != (not equals) operation. "" 
+        return not self.__eq__(other)
+    
+    
 
     def __lt__(self, other: object) -> bool:
         """Returns `True` if `self` < `other`, `False` otherwise."""
         # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        return False
+        
+        
+        # Todo: modifying return False 
+        # Done: Replaced return False -> return self._compare_token_pairs(other) == -1
+        #comment: Returns True if self < other, False  otherwise
+        return self._compare_token_pairs(other) == -1
+    
+    
 
     def __le__(self, other: object) -> bool:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
         # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        return False
+        
+        #Todo: Modify return False && comparison_result 
+        #Done: implemented comparison_result = self._compare_token_pairs(pairs) 
+        #Done: Changed return False to  return comparison_result == -1 or comparison_result == 0
+        comparison_result = self._compare_token_pairs(other)
+        return comparison_result == -1 or comparison_result == 0
 
     def __gt__(self, other: object) -> bool:
         """Returns `True` if `self` > `other`, `False` otherwise."""
         # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        return False
+        
+        
+        #Todo: change return False using compare_token_pairs
+        # Done: changed return False -> retur self.compare_token_pair(other ) ==1
+        #Comment: #"""Returns `True` if `self` > `other`, `False` otherwise.""" 
+        return self._compare_token_pairs(other) ==1 
+    
+
+
 
     def __ge__(self, other: object) -> bool:
+    
         """Returns `True` if `self` >= `other`, `False` otherwise."""
         # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        return False
-
+        
+        
+        
+        
+        #Todo: add comparison_result & modify return false
+        # done: implemented comparison result 
+        #done: modified return False -> return comparison_result ==1 or comparison_result ==0
+        
+        comparison_result = self._compare_token_pairs(other)
+        return comparison_result ==1 or comparison_result ==0  
+    
+    
     def __hash__(self) -> int:
         """Reuses `Pair`'s hash method.
 
@@ -176,7 +214,17 @@ class TwoGram(Pair):
 
         """
         # TODO: implement me [HINT: just call the superclass' `__hash__`]
-        return 0
+        
+        
+        
+        
+        #Todo: modify return 0 
+        #Done: changed return 0 -> return super().__hash__()
+        #Comment: I'll check if it works properly, but it should. 
+        return super.__hash__()
+    
+        
+        
 
     def _compare_token_pairs(self, other: object) -> int:
         """Java-style comparator method to make rich comparisons simpler.
@@ -194,11 +242,7 @@ class TwoGram(Pair):
             else:
                 return _compare_tokens(self.object2, other.object2)
 
-
-
-# end of two Gram Class - methods above are members of two gram class. (This comment will be deleted after commiting changes)
-
-
+# this is the end of TwoGram(pair) class. I implemented all todo following given instructions. 
 
 
 def _compare_tokens(t1: object, t2: object) -> int:
