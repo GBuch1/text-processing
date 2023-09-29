@@ -56,11 +56,13 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
-                
-        if self._object1 == self._object2:
-            return True
-        else:
+        if not isinstance(other, Pair):
             return False
+        return self.object1 == other.object1 and self.object2 == other.object2        
+       # if self._object1 == self._object2:
+        #    return True
+       # else:
+       #     return False
         
 
     def __str__(self) -> str:
@@ -69,15 +71,19 @@ class Pair:
         If either `key` (`object1`) or `value` (`object2`) is `None`, "None" is used in their place.
 
         """
-        if self._object1 == None:
-              self._object1 = "None"
-        else:
-              return self._object1
-        if self._object2 == None:
-              self._object2 = "None"
-        else:
-            return self.object2
-        return ("<"), self._object1, (":"), self._object2, (">")
+        object1_str = str(self.object1) if self.object1 is not None else "None"
+        object2_str = str(self.object2) if self.object2 is not None else "None"
+        return f"<{object1_str}:{object2_str}>"
+        
+       #if self._object1 == None:
+       #       self._object1 = "None"
+        #else:
+         #     return self._object1
+       # if self._object2 == None:
+        #      self._object2 = "None"
+        #else:
+         #   return self.object2
+        #return ("<"), self._object1, (":"), self._object2, (">")
 
     def __hash__(self) -> int:
         """Returns the result of hashing both `key` and `value`.
