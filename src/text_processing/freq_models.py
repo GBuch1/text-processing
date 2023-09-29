@@ -52,6 +52,12 @@ class Pair:
             other: Object to compare to `self`. May be `None`.
 
         """
+        # The __eq__ function first makes sure that the parameter "other"
+        # is in the class "Pair". If "other" is in "Pair" it then compares 
+        # the 'key' of self.object1 to the 'key' of other.object1 followed 
+        # by the 'value' of self.object2 to the 'value' of other.object2 and
+        # returns it
+        
         if not isinstance(other, Pair):
             return False
         return self.object1 == other.object1 and self.object2 == other.object2        
@@ -62,6 +68,15 @@ class Pair:
         If either `key` (`object1`) or `value` (`object2`) is `None`, "None" is used in their place.
 
         """
+        # The __str__ function first creates the variables object1_string and
+        # object2_string and sets them equal to self.object1 and self.object2
+        # respectively as strings. It then passes object1 through an if statement
+        # to determine if the object is 'None'. If the object is 'None', then an
+        # else statement is used to set the variable object1_string equal to the
+        # string value "None". The same process is repeated for object2. Finally
+        # the function returns the values of object1_string and object2_string in
+        # the format "<object1_string:object2_string>".
+        
         object1_string = str(self.object1)
         object2_string = str(self.object2)
         if self.object1 is not None:
