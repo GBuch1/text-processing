@@ -29,6 +29,16 @@
       "comparison": "exact",
       "timeout": 2,
       "points": null
+    },
+    {
+      "name": "Check Mode 1 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ./out/mode_1_word ./westmont-cs128-f23-a01-textprocessing-instout/out/mode_1_word/ && echo \"Mode 1 worked as expected.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
     }
   ]
 }
