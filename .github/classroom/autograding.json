@@ -2,18 +2,8 @@
   "tests": [
     {
       "name": "Pre-test Setup",
-      "setup": "git clone https://github.com/mikeryu/westmont-cs128-f23-a01-textprocessing-instout.git && cd ./src && pwd && md5sum ./run_all.sh | grep \"5edb8ec835a4e801a649f74540c5e6a3\" && chmod 777 ./run_all.sh && echo \"Setup complete.\"",
-      "run": "cd ./src && pwd && ./run_all.sh &> /var/opt/run_all.out.txt && cat /var/opt/run_all.out.txt && echo \"Completed running run_all.sh\"",
-      "input": "",
-      "output": "",
-      "comparison": "exact",
-      "timeout": 10,
-      "points": null
-    },
-    {
-      "name": "Where am I?",
-      "setup": "",
-      "run": "pwd && ls -la",
+      "setup": "git clone https://github.com/mikeryu/westmont-cs128-f23-a01-textprocessing-instout.git && cd ./src && pwd",
+      "run": "md5sum ./run_all.sh | grep \"5edb8ec835a4e801a649f74540c5e6a3\" && chmod 777 ./run_all.sh && echo \"Setup complete.\"",
       "input": "",
       "output": "",
       "comparison": "exact",
