@@ -184,6 +184,12 @@ class TwoGram(Pair):
                 return _compare_tokens(self.object2, other.object2)
 
 
+
+# end of two Gram Class - methods above are members of two gram class. (This comment will be deleted after commiting changes)
+
+
+
+
 def _compare_tokens(t1: object, t2: object) -> int:
     """Helper function to deal with `NoneTypes`.
 
