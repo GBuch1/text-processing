@@ -9,6 +9,16 @@
       "comparison": "exact",
       "timeout": 10,
       "points": null
+    },
+    {
+      "name": "Check Unit Tests Passes (\"OK\")",
+      "setup": "cd ./src && pwd && ./run_all.sh &> ./out/run_all.out.txt && cat ./out/run_all.out.txt && echo \"Completed running run_all.sh\"",
+      "run": "grep \"OK\" ./out/run_all.out.txt && echo \"All unittests seem to be passing.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
     }
   ]
 }
