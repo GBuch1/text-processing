@@ -12,8 +12,8 @@
     },
     {
       "name": "Check All Unit Tests Pass",
-      "setup": "cd ./src",
-      "run": "python -m unittest discover",
+      "setup": "",
+      "run": "cd ./src; python -m unittest discover",
       "input": "",
       "output": "",
       "comparison": "exact",
