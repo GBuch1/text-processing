@@ -9,6 +9,16 @@
       "comparison": "exact",
       "timeout": 10,
       "points": null
+    },
+    {
+      "name": "Check All Unit Tests Pass",
+      "setup": "cd ./src",
+      "run": "python -m unittest discover",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
     }
   ]
 }
