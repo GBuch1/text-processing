@@ -39,6 +39,16 @@
       "comparison": "exact",
       "timeout": 1,
       "points": null
+    },
+    {
+      "name": "Check Mode 2 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ./out/mode_2_twogram ./westmont-cs128-f23-a01-textprocessing-instout/out/mode_2_twogram && echo \"Mode 2 worked as expected.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
     }
   ]
 }
