@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Pre-test Setup",
+      "setup": "git clone git@github.com:mikeryu/westmont-cs128-f23-a01-textprocessing-instout.git && cd ./src && pwd && md5sum ./run_all.sh | grep \"5edb8ec835a4e801a649f74540c5e6a3\" && chmod 777 ./run_all.sh && echo \"Setup complete!\"",
+      "run": "./run_all.sh &> ../out/run_all.out.txt && cat ../out/run_all.out.txt && echo \"Completed running run_all.sh\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Check Unit Tests Passes (\"OK\")",
+      "setup": "",
+      "run": "grep \"OK\" ../out/run_all.out.txt && echo \"All unittests seem to be passing!\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    },
+    {
+      "name": "Mode 1 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ../out/mode_1_word ../westmont-cs128-f23-a01-textprocessing-instout/out/mode_1_word/ && echo \"Mode 1 worked as expected!\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    },
+    {
+      "name": "Mode 2 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ../out/mode_2_twogram ../westmont-cs128-f23-a01-textprocessing-instout/out/mode_2_twogram && echo \"Mode 2 worked as expected!\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    }
+  ]
+}
