@@ -23,7 +23,7 @@
     {
       "name": "Check Successful Run of run_all.sh",
       "setup": "",
-      "run": "cd ./src && pwd && ./run_all.sh &> ./out/run_all.out.txt && cat ./out/run_all.out.txt && echo \"Completed running run_all.sh\" && ls -la ./out",
+      "run": "cd ./src && pwd && ./run_all.sh &> ./out/run_all.out.txt && cat ./out/run_all.out.txt && echo \"Completed running run_all.sh\" && ls -lahR ./out",
       "input": "",
       "output": "",
       "comparison": "exact",
