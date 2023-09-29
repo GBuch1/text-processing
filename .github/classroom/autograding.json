@@ -3,7 +3,7 @@
     {
       "name": "Pre-test Setup",
       "setup": "git clone https://github.com/mikeryu/westmont-cs128-f23-a01-textprocessing-instout.git && cd ./src && pwd && md5sum ./run_all.sh | grep \"5edb8ec835a4e801a649f74540c5e6a3\" && chmod 777 ./run_all.sh && echo \"Setup complete.\"",
-      "run": "cd ./src && pwd && ./run_all.sh &> ../out/run_all.out.txt && cat ../out/run_all.out.txt && echo \"Completed running run_all.sh\"",
+      "run": "cd ./src && pwd && ls -la && ./run_all.sh &> ../out/run_all.out.txt && cat ../out/run_all.out.txt && echo \"Completed running run_all.sh\"",
       "input": "",
       "output": "",
       "comparison": "exact",
