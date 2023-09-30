@@ -53,7 +53,7 @@
     {
       "name": "Check All TODO Comments Removed",
       "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\";",
-      "run": "grep -r \"# TODO:\" \"$(pwd)\"/src; echo $? | grep -w \"1\";",
+      "run": "grep -r \"# TODO:\" \"$(pwd)\"/src; [ $? = \"1\" ];",
       "input": "",
       "output": "",
       "comparison": "exact",
