@@ -61,9 +61,9 @@
       "points": null
     },
     {
-      "name": "Check",
+      "name": "C",
       "setup": "pwd;",
-      "run": "grep -r \"# TODO:\" $(pwd)",
+      "run": "grep -r \"# TODO:\" \"$(pwd)\" | wc -l | grep -w \"0\"",
       "input": "",
       "output": "",
       "comparison": "exact",
