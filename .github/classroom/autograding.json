@@ -49,6 +49,16 @@
       "comparison": "exact",
       "timeout": 1,
       "points": null
+    },
+    {
+      "name": "Check All TODO Comments Removed",
+      "setup": "",
+      "run": "grep -r \"# TODO:\" . | wc -l | grep -w \"0\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
     }
   ]
 }
