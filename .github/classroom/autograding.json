@@ -59,6 +59,16 @@
       "comparison": "exact",
       "timeout": 1,
       "points": null
+    },
+    {
+      "name": "Check",
+      "setup": "",
+      "run": "grep -r \"# TODO:\" /home/runner/work/",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
     }
   ]
 }
