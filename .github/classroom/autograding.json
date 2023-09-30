@@ -53,10 +53,10 @@
     {
       "name": "Check All TODO Comments Removed",
       "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\" > TODOs.grep.txt; cat ./TODOs.grep.txt;",
-      "run": "echo \"Does this even work?\"; wc -l ./TODOs.grep.txt; echo \"At the end.\";",
+      "run": "wc -l ./TODOs.grep.txt;",
       "input": "",
-      "output": "0",
-      "comparison": "included",
+      "output": "0 ./TODOs.grep.txt",
+      "comparison": "exact",
       "timeout": 1,
       "points": null
     }
