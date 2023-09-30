@@ -62,8 +62,8 @@
     },
     {
       "name": "Check",
-      "setup": "",
-      "run": "grep -r \"# TODO:\" /home/runner/work/",
+      "setup": "pwd;",
+      "run": "grep -r \"# TODO:\" $(pwd)",
       "input": "",
       "output": "",
       "comparison": "exact",
