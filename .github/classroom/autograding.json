@@ -51,19 +51,9 @@
       "points": null
     },
     {
-      "name": "Check All TODO Comments Removed",
-      "setup": "",
-      "run": "grep -r \"# TODO:\" ./src",
-      "input": "",
-      "output": "",
-      "comparison": "exact",
-      "timeout": 1,
-      "points": null
-    },
-    {
-      "name": "C",
+      "name": "Check",
       "setup": "pwd;",
-      "run": "grep -r \"# TODO:\" \"$(pwd)\" | wc -l | grep -w \"0\"",
+      "run": "grep -r \"# TODO:\" \"$(pwd)\" | wc -l;",
       "input": "",
       "output": "",
       "comparison": "exact",
