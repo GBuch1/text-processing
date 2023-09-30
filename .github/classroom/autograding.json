@@ -53,7 +53,7 @@
     {
       "name": "Check All TODO Comments Removed",
       "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\";",
-      "run": "history; [ $? = \"1\" ] && echo \"No TODO comments remain in your source code.\"",
+      "run": "[ $? = \"1\" ] && echo \"No TODO comments remain in your source code.\"",
       "input": "",
       "output": "",
       "comparison": "exact",
