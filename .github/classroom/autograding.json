@@ -52,10 +52,10 @@
     },
     {
       "name": "Check All TODO Comments Removed",
-      "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\";",
-      "run": "[ $? = \"1\" ] && echo \"No TODO comments remain in your source code.\"",
+      "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\"",
+      "run": "grep -r \"# TODO:\" \"$(pwd)\"/src; echo $?;",
       "input": "",
-      "output": "",
+      "output": "1",
       "comparison": "exact",
       "timeout": 1,
       "points": null
