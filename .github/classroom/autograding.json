@@ -53,7 +53,7 @@
     {
       "name": "Check All TODO Comments Removed",
       "setup": "",
-      "run": "grep -r \"# TODO:\" . | wc -l | grep -w \"0\"",
+      "run": "grep -r \"# TODO:\" ./src",
       "input": "",
       "output": "",
       "comparison": "exact",
