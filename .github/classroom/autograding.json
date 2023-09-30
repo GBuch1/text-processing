@@ -52,8 +52,8 @@
     },
     {
       "name": "Check All TODO Comments Removed",
-      "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\" > TODOs.grep.txt;",
-      "run": "wc -l ./TODOs.grep.txt;",
+      "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\" > TODOs.grep.txt; cat ./TODOS.grep.txt;",
+      "run": "echo \"Does this even work?\"; wc -l ./TODOs.grep.txt; echo \"At the end.\";",
       "input": "",
       "output": "0",
       "comparison": "included",
