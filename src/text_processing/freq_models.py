@@ -303,7 +303,7 @@ class Frequency:
 
     def increment_freq(self) -> None:
         """Increments the freq by 1."""
-        freq = freq + 1
+        self._freq = self._freq + 1
 
     def __eq__(self, other: object) -> bool:
         """Compares `self` to `other` (object) given to return `True` if equal and `False` otherwise.
@@ -314,38 +314,65 @@ class Frequency:
             other: Object to compare to `self`. May be `None`.
 
         """
-        if other is None or not isinstance(other, Frequency):
-            return 1
+        # if not isinstance(other, Pair):
+        #     return False
+        # return self.object1 == other.object1 and self.object2 == other.object2  
+    
+        if not isinstance(other, Frequency):
+            return False
+        if self.token == other.token and self.freq == other.freq:
+            return True
+        else:
+            return False
 
     def __ne__(self, other: object) -> bool:
         """Complement of __eq__, used to support the `!=` (not equals) operation."""
         # TODO: implement me
-        return False
+        #Done: changed return false -> not self.__eq__()
+        return not self.__eq__(other)
+    
 
     def __lt__(self, other: object) -> bool:
         """Returns `True` if `self` < `other`, `False` otherwise."""
+        # TODO: implement me
         
-        return 
+        #Done: changed return False -> return self._compare_frequency(other) <=0 
+        return self._compare_frequency(other) < 0
 
     def __le__(self, other: object) -> bool:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
         # TODO: implement me
-        return False
+        
+        # #Done: changed return False -> return self._compare_frequency(other) <=0
+        # return self._compare_frequency(other) <=0
+        
+        if self._token <= other._token:
+            return True
+        else:
+            return False
 
     def __gt__(self, other: object) -> bool:
         """Returns `True` if `self` > `other`, `False` otherwise."""
         # TODO: implement me
-        return False
+        
+        #Done: changed return False -> return self._compare_frequency(other) > 0
+        return self._compare_frequency(other) > 0
 
     def __ge__(self, other: object) -> bool:
         """Returns `True` if `self` >= `other`, `False` otherwise."""
         # TODO: implement me
-        return False
+        
+        #Done: modified return False -> return self._compare_frequency(other) >= 0
+        return self._compare_frequency(other) >= 0 
 
     def __str__(self):
         """Returns the string representation of `Frequency` in this format: "token:freq"."""
         # TODO: implement me
-        return ""
+        
+        #Done changed return "" -> return f"{self._token}:{self._freq}"
+        return f"{self._token}:{self._freq}"
+    
+        
 
     def __hash__(self) -> int:
         """Returns the result of hashing both `token` and `freq`.
@@ -354,7 +381,11 @@ class Frequency:
 
         """
         # TODO: implement me [HINT: this will very similar to the `__hash__` in class `Pair`]
-        return 0
+        
+        
+        #Done: changed return 0 -->return hash((self._token,self._freq))
+        return hash((self._token,self._freq))
+    
 
     def _compare_frequency(self, other: object) -> int:
         """Java-style comparator method to make rich comparisons simpler.
@@ -364,4 +395,22 @@ class Frequency:
 
         """
         # TODO: implement me [HINT: this will be somewhat similar to TwoGram._compare_token_pairs]
-        return 0
+        
+        # Attempt to the question: Livingstone
+        
+        if other is None or not isinstance(other,Frequency): # If the other object is None or not an instance of Frequency, consider the current object greater
+            return 1
+        
+        # Tokens are prioritized in comparison to distinguish different words or TwoGrams.
+        if self._token < other.token: 
+            return -1 
+        if self._token > other.token:
+            return 1 
+        
+        # Frequency is a secondary attribute for sorting. Two tokens with the same name will be distinguished by their frequencies.
+        if self._freq < other.freq:
+            return -1
+        if self._freq > other.freq:
+            return 1
+         
+        return 0 # Only if both token and frequency are identical.
