@@ -287,7 +287,7 @@ class Frequency:
 
         """
         if not isinstance(token, (str,TwoGram)):
-            raise ValueError("token parameter is not of type 'str' or 'Two Gram'")
+            raise ValueError("Token parameter is not of type String or TwoGram")
         self._token = token
         self._freq = freq
 
