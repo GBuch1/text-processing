@@ -314,13 +314,8 @@ class Frequency:
             other: Object to compare to `self`. May be `None`.
 
         """
-        if not isinstance(other, Frequency):
-            return False
-        if self.token == other.token and self.freq == other.freq:
-            return True
-        else:
-            return False
-        # TODO: implement me.
+        if other is None or not isinstance(other, Frequency):
+            return 1
 
     def __ne__(self, other: object) -> bool:
         """Complement of __eq__, used to support the `!=` (not equals) operation."""
@@ -329,8 +324,8 @@ class Frequency:
 
     def __lt__(self, other: object) -> bool:
         """Returns `True` if `self` < `other`, `False` otherwise."""
-        # TODO: implement me
-        return False
+        
+        return 
 
     def __le__(self, other: object) -> bool:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
