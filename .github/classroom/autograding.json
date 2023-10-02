@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "Pre-test Setup",
+      "setup": "git clone https://github.com/mikeryu/westmont-cs128-f23-a01-textprocessing-instout.git",
+      "run": "md5sum ./src/run_all.sh | grep \"5edb8ec835a4e801a649f74540c5e6a3\" && chmod 777 ./src/run_all.sh && echo \"Setup complete.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Check All Unit Tests Pass",
+      "setup": "",
+      "run": "cd ./src; python -m unittest discover",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    },
+    {
+      "name": "Check Successful Run of run_all.sh",
+      "setup": "",
+      "run": "cd ./src; pwd; ./run_all.sh && echo \"Completed running run_all.sh\" && ls -lahR ../out",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 2,
+      "points": null
+    },
+    {
+      "name": "Check Mode 1 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ./out/mode_1_word ./westmont-cs128-f23-a01-textprocessing-instout/out/mode_1_word/ && echo \"Mode 1 worked as expected.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    },
+    {
+      "name": "Check Mode 2 Output Comparisons (diff -b)",
+      "setup": "",
+      "run": "diff -bur ./out/mode_2_twogram ./westmont-cs128-f23-a01-textprocessing-instout/out/mode_2_twogram && echo \"Mode 2 worked as expected.\"",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    },
+    {
+      "name": "Check All TODO Comments Removed",
+      "setup": "pwd; echo \"Searching for TODOs ...\"; grep -r \"# TODO:\" \"$(pwd)/src\" > TODOs.grep.txt; cat ./TODOs.grep.txt;",
+      "run": "wc -l ./TODOs.grep.txt;",
+      "input": "",
+      "output": "0 ./TODOs.grep.txt",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": null
+    }
+  ]
+}
