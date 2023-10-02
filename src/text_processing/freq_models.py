@@ -286,25 +286,24 @@ class Frequency:
              ValueError: If `token` parameter is not of type `str` or `TwoGram`.
 
         """
-        # TODO: implement me [HINT: use `ValueError("A token must either be of type str or TwoGram.")`]
-        pass
+        if not isinstance(token, (str,TwoGram)):
+            raise ValueError("token parameter is not of type 'str' or 'Two Gram'")
+        self._token = token
+        self._freq = freq
 
     @property
     def token(self) -> object:
         """Getter for `token`."""
-        # TODO: implement me
-        return None
+        return self._token
 
     @property
     def freq(self) -> int:
         """Getter for `freq`."""
-        # TODO: implement me
-        return 0
+        return self._freq
 
     def increment_freq(self) -> None:
         """Increments the freq by 1."""
-        # TODO: implement me
-        pass
+        freq = freq + 1
 
     def __eq__(self, other: object) -> bool:
         """Compares `self` to `other` (object) given to return `True` if equal and `False` otherwise.
@@ -315,8 +314,13 @@ class Frequency:
             other: Object to compare to `self`. May be `None`.
 
         """
+        if not isinstance(other, Frequency):
+            return False
+        if self.token == other.token and self.freq == other.freq:
+            return True
+        else:
+            return False
         # TODO: implement me.
-        return False
 
     def __ne__(self, other: object) -> bool:
         """Complement of __eq__, used to support the `!=` (not equals) operation."""
