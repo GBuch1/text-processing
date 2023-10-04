@@ -33,21 +33,39 @@ def tokenize_file(file_obj: TextIOWrapper) -> list:
         >>> tokenize_file(fo)
         ["an", "input", "string", "this", "is", "or", "isn't", "it", "123", "45"]
     """
-    # Regex definition
-    regex = r"[.,\-...,!?]"
+    #Attempt 1:
+    #How it works / Comment:
+        #token_pattern will match words which may include numbers and apostrophes
+        #Then we iterate over each line of the file_obj
+        #Each line is converted to lower case then all words are found using re.findal and appended to the tokens list
+        #finally tokes list is returned
+        #downflows:
+        #This code can't help us when dealing with large files - altenatively we can use yield
+    token_pattern = re.compile(r"\b\w[\w']*\b")
+    tokens = []
+    # Process the file line by line
+    for line in file_obj:
+        # Normalize to lower case
+        line = line.lower()
+        # Find all tokens in the line and add them to the tokens list
+        tokens.extend(re.findall(token_pattern, line)) 
+    return tokens
     
-    # Compile the regex
-    regexEnd = re.compile(regex)
+    # Regex definition
+    # regex = r"[.,\-...,!?]"
+    
+    # # Compile the regex
+    # regexEnd = re.compile(regex)
 
-    # Find all confirmations in the file
-    confirm = regexEnd.finditer(file_obj.read())
+    # # Find all confirmations in the file
+    # confirm = regexEnd.finditer(file_obj.read())
 
-    # Create a list of tokens, ordered according to their occurrence in the file
-    tokenized = []
-    for i in confirm:
-        tokenized.append(i.group(1).lower())
+    # # Create a list of tokens, ordered according to their occurrence in the file
+    # tokenized = []
+    # for i in confirm:
+    #     tokenized.append(i.group(1).lower())
 
-    return tokenized
+    # return tokenized
    
     # regex = r"\[(.*?,!-())\]"
     # input = re.compile(regex)
@@ -92,8 +110,25 @@ def print_frequencies(freqs: list[Frequency], out: TextIOWrapper) -> None:
              1 think you
              3 you know
     """
-    # TODO: implement me
-    try:
+    
+    total_items = 0
+    for freq in freqs:
+        total_items += freq.freq
+            
+    unique_items = len(set(freqs))
+     
+    # Print out total and unique items  
+    out.write(f"{total_items:>6} total items\n")
+    out.write(f"{unique_items:>6} unique items\n\n")
+    
+    for freq in freqs:
+        out.write("{:6d} {}\n".format(freq.freq, freq.token))
+    
+        
+
+    # TODO:
+    try: 
+          
         pass
     except IOError as e:  # Leave this `except` block as-is.
         print("Encountered an error while printing:", e)

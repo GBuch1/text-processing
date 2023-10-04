@@ -390,10 +390,6 @@ class Frequency:
         In other words, any `Frequency` with the same `token` and `freq` attributes should have the same hash.
 
         """
-        # TODO: implement me [HINT: this will very similar to the `__hash__` in class `Pair`]
-        
-        
-        #Done: changed return 0 -->return hash((self._token,self._freq))
         # if isinstance(str, TwoGram) and (self._token == self._freq):
         #     return hash((self._token,self._freq))
         return hash((self._token,self._freq))
@@ -406,15 +402,14 @@ class Frequency:
         Types that do not match (including `NoneType`) are considered < any `Frequency`.
 
         """
-        # TODO: implement me [HINT: this will be somewhat similar to TwoGram._compare_token_pairs]
-        
-        # Attempt to the question: Livingstone
+        # Checks for types that are not in Frequency and returns 1 making said type less than any Frequency
         if other is None or not isinstance (other, Frequency):
             return 1
         if self._freq > other._freq:
             return -1
         elif self.freq < other.freq:
             return 1
+        # Compare tokens to act as tie if the frequencies are equal
         else:
             if self._token < self._token:
                 return -1
