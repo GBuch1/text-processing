@@ -50,28 +50,6 @@ def tokenize_file(file_obj: TextIOWrapper) -> list:
         # Find all tokens in the line and add them to the tokens list
         tokens.extend(re.findall(token_pattern, line)) 
     return tokens
-    
-    # Regex definition
-    # regex = r"[.,\-...,!?]"
-    
-    # # Compile the regex
-    # regexEnd = re.compile(regex)
-
-    # # Find all confirmations in the file
-    # confirm = regexEnd.finditer(file_obj.read())
-
-    # # Create a list of tokens, ordered according to their occurrence in the file
-    # tokenized = []
-    # for i in confirm:
-    #     tokenized.append(i.group(1).lower())
-
-    # return tokenized
-   
-    # regex = r"\[(.*?,!-())\]"
-    # input = re.compile(regex)
-    # # TODO: implement me [HINT: use regexr.com and re; the regex required here is quite simple!]
-    # return [input]
-
 
 def print_frequencies(freqs: list[Frequency], out: TextIOWrapper) -> None:
     """Takes a list of `Frequency`s and outputs it to the stream passed in via the `out` argument.
@@ -123,12 +101,7 @@ def print_frequencies(freqs: list[Frequency], out: TextIOWrapper) -> None:
     
     for freq in freqs:
         out.write("{:6d} {}\n".format(freq.freq, freq.token))
-    
-        
-
-    # TODO:
-    try: 
-          
+    try:      
         pass
     except IOError as e:  # Leave this `except` block as-is.
         print("Encountered an error while printing:", e)

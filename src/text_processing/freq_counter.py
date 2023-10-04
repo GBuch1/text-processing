@@ -22,10 +22,16 @@ def main() -> None:
         pars.error("Processing mode must be either 1 (word) or 2 (twogram).")
 
     try:
-        # TODO: stitch everything together HERE.
-        # TODO: when `open`ing a file, use `encoding="UTF-8"`
-
-        # TODO: print the output to `sys.stdout` stream if the `-v` switch/flag was given.
+        with open(args.input_file_path, 'r', encoding="UTF-8") as input_file:
+            tokens = tokenize_file(input_file)
+        if args.processing_mode == 1:
+            frequencies = compute_word_freq(tokens)
+        elif args.processing_mode == 2:
+            frequencies = compute_twogram_freq(tokens)
+        with open(args.output_file_path, 'w', encoding="UTF-8") as output_file:
+            if args.verbose:
+                print_frequencies(frequencies, sys.stdout)
+            print_frequencies(frequencies, output_file)
         if args.verbose:  # DO NOT get rid of this -- this will be useful in debugging.
             pass
     except OSError as e:  # Leave this `except` block as-is.
@@ -66,8 +72,16 @@ def compute_word_freq(tokens: list[str]) -> list[Frequency]:
         >>> print(list(map(str, word_freq)))
         ["sentence:2", "repeats:1", "the:1", "this:1",  "word:1"]
     """
-    # TODO: implement me
-    return []
+    if tokens is None or len(tokens) == 0:
+        return[]
+    word_freq = {}
+    for token in tokens:
+        if token in word_freq:
+            word_freq[token] += 1
+        else:
+            word_freq[token] = 1
+    freq_list = [Frequency(word, count) for word, count in word_freq.items()]
+    return sorted(freq_list, key=lambda x: (-x.freq, x.token))
 
 
 def compute_twogram_freq(tokens: list[str]) -> list[Frequency]:
@@ -98,8 +112,17 @@ def compute_twogram_freq(tokens: list[str]) -> list[Frequency]:
              1 <think:you>
              1 <you:know>
     """
-    # TODO: implement me
-    return []
+    if tokens is None or len(tokens) == 0:
+        return []
+    twogram_freq = {}
+    for i in range(len(tokens) - 1):
+        twogram = TwoGram(tokens[i], tokens[i+1])
+        if twogram in twogram_freq:
+            twogram_freq[twogram] += 1
+        else:
+            twogram_freq[twogram] = 1
+    freq_list = [Frequency(twogram, count) for twogram, count in twogram_freq.items()]
+    return sorted(freq_list, key=lambda x: (-x.freq, x.token))
 
 
 if __name__ == '__main__':

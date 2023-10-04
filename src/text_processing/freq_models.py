@@ -148,11 +148,7 @@ class TwoGram(Pair):
         return False
 
     def __ne__(self, other: object) -> bool:
-        """Complement of __eq__, used to support the `!=` (not equals) operation."""
-        # TODO: implement me [HINT: use `__eq__` from above; this should be a one-liner]
-        
-        
-        # Todo: modify return False 
+        """Complement of __eq__, used to support the `!=` (not equals) operation."""        
         # Done: Teplaced return False with  -> return not self.__eq__(other)
         #comment: complement of __eq__, used to support != (not equals) operation. "" 
         return not self.__eq__(other)
@@ -160,10 +156,7 @@ class TwoGram(Pair):
     
 
     def __lt__(self, other: object) -> bool:
-        """Returns `True` if `self` < `other`, `False` otherwise."""
-        # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        
-        
+        """Returns `True` if `self` < `other`, `False` otherwise."""        
         # Todo: modifying return False 
         # Done: Replaced return False -> return self._compare_token_pairs(other) == -1
         #comment: Returns True if self < other, False  otherwise
@@ -173,9 +166,6 @@ class TwoGram(Pair):
 
     def __le__(self, other: object) -> bool:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
-        # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        
-        #Todo: Modify return False && comparison_result 
         #Done: implemented comparison_result = self._compare_token_pairs(pairs) 
         #Done: Changed return False to  return comparison_result == -1 or comparison_result == 0
         comparison_result = self._compare_token_pairs(other)
@@ -183,10 +173,6 @@ class TwoGram(Pair):
 
     def __gt__(self, other: object) -> bool:
         """Returns `True` if `self` > `other`, `False` otherwise."""
-        # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        
-        
-        #Todo: change return False using compare_token_pairs
         # Done: changed return False -> retur self.compare_token_pair(other ) ==1
         #Comment: #"""Returns `True` if `self` > `other`, `False` otherwise.""" 
         return self._compare_token_pairs(other) ==1 
@@ -197,12 +183,6 @@ class TwoGram(Pair):
     def __ge__(self, other: object) -> bool:
     
         """Returns `True` if `self` >= `other`, `False` otherwise."""
-        # TODO: implement me [HINT: use `_compare_token_pairs` from below; this should be a one-liner]
-        
-        
-        
-        
-        #Todo: add comparison_result & modify return false
         # done: implemented comparison result 
         #done: modified return False -> return comparison_result ==1 or comparison_result ==0
         
@@ -217,18 +197,9 @@ class TwoGram(Pair):
          __hash___() to None because we are implementing __eq__ but not __hash__.
 
         """
-        # TODO: implement me [HINT: just call the superclass' `__hash__`]
-        
-        
-        
-        
-        #Todo: modify return 0 
         #Done: changed return 0 -> return super().__hash__()
         #Comment: I'll check if it works properly, but it should. 
         return super().__hash__()
-    
-        
-        
 
     def _compare_token_pairs(self, other: object) -> int:
         """Java-style comparator method to make rich comparisons simpler.
@@ -327,63 +298,29 @@ class Frequency:
 
     def __ne__(self, other: object) -> bool:
         """Complement of __eq__, used to support the `!=` (not equals) operation."""
-        # TODO: implement me
-        #Done: changed return false -> not self.__eq__()
         return not self.__eq__(other)
     
 
     def __lt__(self, other: object) -> bool:
-        """Returns `True` if `self` < `other`, `False` otherwise."""
-        # TODO: implement me
-        
+        """Returns `True` if `self` < `other`, `False` otherwise."""        
         return self._compare_frequency(other) < 1 
-        
-        
-        #Done: changed return False -> return self._compare_frequency(other) <=0 
-        #return self._compare_frequency(other) < 0
 
     def __le__(self, other: object) -> bool:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
-        # TODO: implement me
-        
         return self._compare_frequency(other) <= 0
-        
-        
-        # #Done: changed return False -> return self._compare_frequency(other) <=0
-        # return self._compare_frequency(other) <=0
-        
-        if self._token <= other._token:
-            return True
-        else:
-            return False
-
+      
     def __gt__(self, other: object) -> bool:
         """Returns `True` if `self` > `other`, `False` otherwise."""
-        # TODO: implement me
-        
         return self._compare_frequency(other) > -1
-        
-        
-        #Done: changed return False -> return self._compare_frequency(other) > 0
-        #return self._compare_frequency(other) > 0
 
     def __ge__(self, other: object) -> bool:
         """Returns `True` if `self` >= `other`, `False` otherwise."""
-        # TODO: implement me
-        
-        #Done: modified return False -> return self._compare_frequency(other) >= 0
-        # if self._compare_frequency(other) >= 0:
         return self._compare_frequency(other) >= 0 
 
     def __str__(self):
         """Returns the string representation of `Frequency` in this format: "token:freq"."""
-        # TODO: implement me
-        
-        #Done changed return "" -> return f"{self._token}:{self._freq}"
         return f"{self._token}:{self._freq}"
     
-        
-
     def __hash__(self) -> int:
         """Returns the result of hashing both `token` and `freq`.
 
@@ -417,60 +354,3 @@ class Frequency:
                 return 1
             else:
                 return 0
-        
-        # if other is None or not isinstance(other, Frequency):
-        #     return 1
-        # elif:
-        #     if self.freq is None and other.freq is None:
-        #         return 0
-        #     else:
-        #         if self.freq is None:
-        #             return -1
-        #         elif other.freq is None:
-        #             return 1
-        #         else:
-        #             return 0 if self.freq == other.freq else -1 if self.freq < other.freq else 1
-        # else:
-        #     if self.token is None and other.token is None:
-        #         return 0
-        #     else:
-        #         if self.token is None:
-        #             return -1
-        #         elif other.token is None:
-        #             return 1
-        #         else:
-        #             return 0 if self.token == other.token else -1 if self.token < other.token else 1
-        
-            # if self.freq == other.freq:
-            #    return 0 if self.token == other.token else -1 if self.token < other.token else 1
-                
-        # If the two frequencies are the same in addition to what we have, then compare the tokens to break the tie
-        
-            
-            
-        # if other is None or not isinstance(other,Frequency):
-        #     return 1 
-        # if self._freq > self.freq: 
-        #     return 1 
-    
-        # Need to compare same type
-        # Deal with if token is of same type
-        # 
-        
-        
-        # if other is None or not isinstance(other,Frequency): # If the other object is None or not an instance of Frequency, consider the current object greater
-        #     return 1
-        
-        # # Tokens are prioritized in comparison to distinguish different words or TwoGrams.
-        # if self._token < other.token: 
-        #     return -1 
-        # if self._token > other.token:
-        #     return 1 
-        
-        # # Frequency is a secondary attribute for sorting. Two tokens with the same name will be distinguished by their frequencies.
-        # if self._freq < other.freq:
-        #     return -1
-        # if self._freq > other.freq:
-        #     return 1
-         
-        # return 0 # Only if both token and frequency are identical.
