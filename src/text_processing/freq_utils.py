@@ -22,9 +22,9 @@ def tokenize_file(file_obj: TextIOWrapper) -> list:
         file_obj (TextIOWrapper): file to tokenize.
 
     Yields:
-        A list of these tokens, ordered according to their occurrence in the original text file.
-        Non-alphanumeric characters except for `'` delineate tokens, and are discarded.
-        Tokens should not span multiple lines and words are also normalized to lower case.
+        A list of these tokens, ordered according to their occurrence in the original text file. #Iterate
+        Non-alphanumeric characters except for `'` delineate tokens, and are discarded. #Find Proper Regex
+        Tokens should not span multiple lines and words are also normalized to lower case. # Format Properly
 
     Example:
         Given the file object containing: "An input string, this is! (or isn't it?) 123-45"
@@ -33,8 +33,26 @@ def tokenize_file(file_obj: TextIOWrapper) -> list:
         >>> tokenize_file(fo)
         ["an", "input", "string", "this", "is", "or", "isn't", "it", "123", "45"]
     """
-    # TODO: implement me [HINT: use regexr.com and re; the regex required here is quite simple!]
-    return []
+    # Regex definition
+    regex = r"[.,\-...,!?]"
+    
+    # Compile the regex
+    regexEnd = re.compile(regex)
+
+    # Find all confirmations in the file
+    confirm = regexEnd.finditer(file_obj.read())
+
+    # Create a list of tokens, ordered according to their occurrence in the file
+    tokenized = []
+    for i in confirm:
+        tokenized.append(i.group(1).lower())
+
+    return tokenized
+   
+    # regex = r"\[(.*?,!-())\]"
+    # input = re.compile(regex)
+    # # TODO: implement me [HINT: use regexr.com and re; the regex required here is quite simple!]
+    # return [input]
 
 
 def print_frequencies(freqs: list[Frequency], out: TextIOWrapper) -> None:

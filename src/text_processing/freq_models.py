@@ -225,7 +225,7 @@ class TwoGram(Pair):
         #Todo: modify return 0 
         #Done: changed return 0 -> return super().__hash__()
         #Comment: I'll check if it works properly, but it should. 
-        return super.__hash__()
+        return super().__hash__()
     
         
         
@@ -336,9 +336,8 @@ class Frequency:
         """Returns `True` if `self` < `other`, `False` otherwise."""
         # TODO: implement me
         
-        if self._compare_frequency(other) == -1:
-            return False
-        return True
+        return self._compare_frequency(other) < 1 
+        
         
         #Done: changed return False -> return self._compare_frequency(other) <=0 
         #return self._compare_frequency(other) < 0
@@ -347,9 +346,7 @@ class Frequency:
         """Returns `True` if `self` <= `other`, `False` otherwise."""
         # TODO: implement me
         
-        if (self._compare_frequency(other) == -1) or (self._compare_frequency(other) == 0):
-            return True
-        return False
+        return self._compare_frequency(other) <= 0
         
         
         # #Done: changed return False -> return self._compare_frequency(other) <=0
@@ -364,9 +361,8 @@ class Frequency:
         """Returns `True` if `self` > `other`, `False` otherwise."""
         # TODO: implement me
         
-        if self._compare_frequency(other) == 1:
-            return False
-        return True
+        return self._compare_frequency(other) > -1
+        
         
         #Done: changed return False -> return self._compare_frequency(other) > 0
         #return self._compare_frequency(other) > 0
@@ -376,9 +372,8 @@ class Frequency:
         # TODO: implement me
         
         #Done: modified return False -> return self._compare_frequency(other) >= 0
-        if self._compare_frequency(other) >= 0:
-            return True
-        return False
+        # if self._compare_frequency(other) >= 0:
+        return self._compare_frequency(other) >= 0 
 
     def __str__(self):
         """Returns the string representation of `Frequency` in this format: "token:freq"."""
@@ -399,6 +394,8 @@ class Frequency:
         
         
         #Done: changed return 0 -->return hash((self._token,self._freq))
+        # if isinstance(str, TwoGram) and (self._token == self._freq):
+        #     return hash((self._token,self._freq))
         return hash((self._token,self._freq))
     
 
@@ -413,15 +410,57 @@ class Frequency:
         
         # Attempt to the question: Livingstone
         if other is None or not isinstance (other, Frequency):
-            return -1
-        if self is None or not isinstance (self, Frequency):
-            return -1
-        if self.freq < other.freq:
-            return -1
-        if self.freq == other.freq:
-            return 0
-        if self.freq > other.freq:
             return 1
+        if self._freq > other._freq:
+            return -1
+        elif self.freq < other.freq:
+            return 1
+        else:
+            if self._token < self._token:
+                return -1
+            elif self._token > self._token:
+                return 1
+            else:
+                return 0
+        
+        # if other is None or not isinstance(other, Frequency):
+        #     return 1
+        # elif:
+        #     if self.freq is None and other.freq is None:
+        #         return 0
+        #     else:
+        #         if self.freq is None:
+        #             return -1
+        #         elif other.freq is None:
+        #             return 1
+        #         else:
+        #             return 0 if self.freq == other.freq else -1 if self.freq < other.freq else 1
+        # else:
+        #     if self.token is None and other.token is None:
+        #         return 0
+        #     else:
+        #         if self.token is None:
+        #             return -1
+        #         elif other.token is None:
+        #             return 1
+        #         else:
+        #             return 0 if self.token == other.token else -1 if self.token < other.token else 1
+        
+            # if self.freq == other.freq:
+            #    return 0 if self.token == other.token else -1 if self.token < other.token else 1
+                
+        # If the two frequencies are the same in addition to what we have, then compare the tokens to break the tie
+        
+            
+            
+        # if other is None or not isinstance(other,Frequency):
+        #     return 1 
+        # if self._freq > self.freq: 
+        #     return 1 
+    
+        # Need to compare same type
+        # Deal with if token is of same type
+        # 
         
         
         # if other is None or not isinstance(other,Frequency): # If the other object is None or not an instance of Frequency, consider the current object greater
