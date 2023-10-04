@@ -72,17 +72,21 @@ def compute_word_freq(tokens: list[str]) -> list[Frequency]:
         >>> print(list(map(str, word_freq)))
         ["sentence:2", "repeats:1", "the:1", "this:1",  "word:1"]
     """
+    # Returns an empty list if tokens is type None of there is nothing in the inputed list
     if tokens is None or len(tokens) == 0:
         return[]
-    word_freq = {}
+    # Create a dictionary
+    wordsFrequency = {}
+    # Iterate through tokens until there is nothing left in tokens
     for token in tokens:
-        if token in word_freq:
-            word_freq[token] += 1
+        if token in wordsFrequency:
+            wordsFrequency[token] += 1
         else:
-            word_freq[token] = 1
-    freq_list = [Frequency(word, count) for word, count in word_freq.items()]
+            wordsFrequency[token] = 1
+    # Create a list freq_list       
+    freq_list = [Frequency(word, count) for word, count in wordsFrequency.items()]
+    # Return the sorted freq list
     return sorted(freq_list, key=lambda x: (-x.freq, x.token))
-
 
 def compute_twogram_freq(tokens: list[str]) -> list[Frequency]:
     """Takes the input list of words and processes it, returning a list of `Frequency`s.
@@ -112,16 +116,21 @@ def compute_twogram_freq(tokens: list[str]) -> list[Frequency]:
              1 <think:you>
              1 <you:know>
     """
+    # Returns an empty list if tokens is type None of there is nothing in the inputed list
     if tokens is None or len(tokens) == 0:
         return []
-    twogram_freq = {}
+    # Create a dictionary for twogramFrequencies
+    twogramFrequencies = {}
+    # Iterate through tokens until there is nothing left in tokens
     for i in range(len(tokens) - 1):
         twogram = TwoGram(tokens[i], tokens[i+1])
-        if twogram in twogram_freq:
-            twogram_freq[twogram] += 1
+        if twogram in twogramFrequencies:
+            twogramFrequencies[twogram] += 1
         else:
-            twogram_freq[twogram] = 1
-    freq_list = [Frequency(twogram, count) for twogram, count in twogram_freq.items()]
+            twogramFrequencies[twogram] = 1
+    # Create a list freq_list
+    freq_list = [Frequency(twogram, count) for twogram, count in twogramFrequencies.items()]
+    # Return the sorted list
     return sorted(freq_list, key=lambda x: (-x.freq, x.token))
 
 
