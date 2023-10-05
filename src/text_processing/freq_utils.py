@@ -7,9 +7,9 @@ import re
 from io import TextIOWrapper
 from text_processing.freq_models import Frequency
 
-__author__ = "Boaty McBoatface, Planey McPlaneface"
+__author__ = "Garrett Buchanan, Livingstone Rwagatare"
 __copyright__ = "Copyright 2023, Westmont College"
-__credits__ = ["Boaty McBoatface", "Planey McPlaneface",
+__credits__ = ["Garrett Buchanan", "Livingstone Rwagatare",
                "Donald J. Patterson", "Mike Ryu", ]
 __license__ = "MIT"
 __email__ = "mryu@westmont.edu"
@@ -41,7 +41,7 @@ def tokenize_file(file_obj: TextIOWrapper) -> list:
         #finally tokes list is returned
         #downflows:
         #This code can't help us when dealing with large files - altenatively we can use yield
-    token_pattern = re.compile(r"\b\w[\w']*\b")
+    token_pattern = re.compile(r"[\w']+")
     tokens = []
     # Process the file line by line
     for line in file_obj:
